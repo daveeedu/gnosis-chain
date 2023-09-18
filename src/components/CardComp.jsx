@@ -19,7 +19,7 @@ const CardComp = ({data}) => {
         onClick={() => handleCardClick(card.id)}
       >
         <h1 className=" text-[1.7em] font-bold mb-2 text-[#B4A572]">{card.title}</h1>
-       <div className='flex '>
+       <div className='flex justify-between'>
        <div className="overflow-hidden  text-[0.7em] text-[400] leading-[24px] text-[#B4A572]">
             <p>{card.content}</p>
             <div className='flex jsutify-betwen gap-2 absolute bottom-5'>
