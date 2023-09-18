@@ -63,7 +63,7 @@ const LandingPage = () => {
                                 <h1 className='md:text-[2em] xl:text-[1.7em] text-[1.5em]  leading-[0.8em]  font-bold '>
                                     Gnosis Energy
                                 </h1>
-                                <p className='xl:text-[1em] md:text-[1.3em] text-[0.7em] mt-4'>
+                                <p className='xl:text-[0.9em] md:text-[1.3em] text-[0.7em] mt-4'>
                                     Gnosis Energy empowers users with transparent, fair, and decentralized renewable energy trading, addressing overcharging and lack of transparency in energy distribution.
                                 </p>
                             </div>
@@ -104,7 +104,7 @@ const LandingPage = () => {
                                 <h1 className='xl:text-[1.7em] md:text-[2em] text-[1.5em]  leading-[0.8em]  font-bold '>
                                     Gnosis Chain
                                 </h1>
-                                <p className='xl:text-[1em] md:text-[1.3em] text-[0.7em] mt-4'>
+                                <p className='xl:text-[0.9em] md:text-[1.3em] text-[0.7em] mt-4'>
                                     Gnosis Chain is a blockchain network that securely records transactions and data in a decentralized way, ensuring transparency and trust without relying on a central authority.
                                 </p>
                             </div>
