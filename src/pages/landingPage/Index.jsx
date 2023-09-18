@@ -1,5 +1,5 @@
 import React from 'react'
-import { ILightningBolt, IMobileBG, ITalentOne, ITalentTwo, ITalentThree, ITwitter, ILinkedIn, IInstagram, IGithub, IGnosisLogo, IGnosisEnergyFoot } from '../../utils/icons.utils'
+import { IMobileBG, ITalentOne, ITalentTwo, ITalentThree, IGnosisLogo, IGnosisEnergyFoot } from '../../utils/icons.utils'
 import CardComp from '../../components/CardComp';
 
 const LandingPage = () => {
@@ -33,7 +33,6 @@ const LandingPage = () => {
         <div>
             <div className='logo-container flex mb-14 pt-8'>
                 <img src={IGnosisLogo} className="lg:w-[8%] w-[20%] m-auto" alt="logo" />
-                {/* <h1 className='md:text-[1.8em] text-[1.3em] italic text-[#11453B] font-[800] -ml-5 mt-8 md:mt-5 drop-shadow-xl'>Gnosis Energy</h1> */}
             </div>
             <div className=''>
                 <h1 className='text-[3.5em] leading-[0.8em] text-[#25292E] font-bold '>
@@ -60,15 +59,15 @@ const LandingPage = () => {
                         <div className=' m-auto mb-8 md:w-[70%] lg:w-full lg:mb-0 relative text-[#B4A572]'>
                             <img src={IMobileBG} alt='IPatternsThree' className='w-[80%] m-auto' />
                             <div className='absolute md:top-[25%] top-[30%] w-[50%] right-[25%]'>
-                                <h1 className='md:text-[2em] xl:text-[1.7em] text-[1.5em]  leading-[0.8em]  font-bold '>
+                                <h1 className='md:text-[2em] lg:text-[1.5em] xl:text-[1.7em] text-[1.5em]  leading-[0.8em]  font-bold '>
                                     Gnosis Energy
                                 </h1>
-                                <p className='xl:text-[0.9em] md:text-[1.3em] text-[0.7em] mt-4'>
+                                <p className='xl:text-[0.9em] lg:text-[0.7em] md:text-[1.3em] text-[0.7em] mt-4'>
                                     Gnosis Energy empowers users with transparent, fair, and decentralized renewable energy trading, addressing overcharging and lack of transparency in energy distribution.
                                 </p>
                             </div>
                         </div>
-                        <div className=' m-auto xl:w-full 2xl:w-[60%]  md:w-[60%] w-[80%]'>
+                        <div className=' m-auto 2xl:w-[60%] lg:w-full  md:w-[60%] w-[80%]'>
                             <div className=' text-start'>
                                 <div className='flex mb-2 mt-2'>
                                     <h1 className='bg-[#11453B] px-3 py-2 rounded-2xl text-[#B4A572]'>1</h1>
@@ -101,10 +100,10 @@ const LandingPage = () => {
                         <div className=' m-auto mt-8 md:w-[70%] lg:w-full lg:mt-0 relative text-[#B4A572]'>
                             <img src={IMobileBG} alt='IPatternsThree' className='w-[80%] m-auto' />
                             <div className='absolute top-[25%] w-[50%] right-[25%]'>
-                                <h1 className='xl:text-[1.7em] md:text-[2em] text-[1.5em]  leading-[0.8em]  font-bold '>
+                                <h1 className='xl:text-[1.7em] lg:text-[1.5em] md:text-[2em] text-[1.5em]  leading-[0.8em]  font-bold '>
                                     Gnosis Chain
                                 </h1>
-                                <p className='xl:text-[0.9em] md:text-[1.3em] text-[0.7em] mt-4'>
+                                <p className='xl:text-[0.9em] lg:text-[0.7em] md:text-[1.3em] text-[0.7em] mt-4'>
                                     Gnosis Chain is a blockchain network that securely records transactions and data in a decentralized way, ensuring transparency and trust without relying on a central authority.
                                 </p>
                             </div>
@@ -112,7 +111,7 @@ const LandingPage = () => {
                     </div>
                 </div>
             </div>
-            <div className='py-20 bg-gradient-to-t from-transparent to-white'>
+            <div className='py-20 lg:px-6 bg-gradient-to-t from-transparent to-white'>
                 <h1 className='mb-10 mt-5 text-[3.5em] leading-[0.8em] text-[#B4A572] font-bold '>
                     Meet Gnosis Energy Team
                 </h1>
@@ -122,7 +121,6 @@ const LandingPage = () => {
                 <div className='py-10'>
                     <div className='logo-container flex justify-center'>
                         <img src={IGnosisEnergyFoot} className="lg:w-[8%] w-[20%] m-auto" alt="logo" />
-                        {/* <h1 className='md:text-[1.8em] text-[1.3em] italic text-[#B4A572] font-[800] -ml-5 mt-8 md:mt-5 drop-shadow-xl'>Gnosis Energy</h1> */}
                     </div>
                 </div>
                 <div className='text-[#B4A572] text-[0.8em] pb-3'>
