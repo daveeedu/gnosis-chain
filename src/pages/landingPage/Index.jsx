@@ -52,7 +52,7 @@ const LandingPage = () => {
                 </div>
             </div>
             <div className=''>
-                <div className=' py-14 relative  mb-8 text-[#11453B] bg-gradient-to-b from-teal-900 to-transparent'>
+                <div className=' py-14 relative  pb-8 text-[#11453B] bg-gradient-to-b from-teal-900 to-transparent'>
                     <h1 className='mb-10 mt-5 text-[3.5em] leading-[0.8em] text-[#B4A572] font-bold '>
                         How Gnosis Energy Works
                     </h1>
