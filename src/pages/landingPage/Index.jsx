@@ -5,7 +5,7 @@ import CardComp from '../../components/CardComp';
 const LandingPage = () => {
     const cards = [
         {
-            id: 1, title: 'David Edu', img: ITalentOne, profession: 'Software Engineer | Web3 Solidity developer', content: 'FrontEnd Engineer, Open-Source Advocate | Crafting innovative, user-friendly, and accessible web applications | Solving complex problems, and contributing to open-source for a brighter future 🚀 ', links: {
+            id: 1, title: 'David Edu', img: ITalentOne, profession: 'Software Engineer | Web3 Solidity developer', content: 'FrontEnd Engineer, Open-Source Advocate | Crafting innovative, user-friendly, and accessible web applications | Solving complex problems, and contributing to open-source for a brighter future. ', links: {
                 github: 'https://github.com/daveeedu',
                 linkedin: 'https://www.linkedin.com/in/david-edu/',
                 twitter: 'https://twitter.com/DavidEdu259865',
