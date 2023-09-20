@@ -60,9 +60,8 @@ const LandingPage = () => {
                 </div>
             </div>
             {isConnected ? (
-                <div>
-                <p>Wallet is not connected.</p>
-                <button onClick={handleConnectWallet}>Connect Wallet</button>
+            <div>
+                <p>Wallet is  connected.</p>
             </div>
             ) : (
                 <div >
