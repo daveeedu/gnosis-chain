@@ -1,18 +1,27 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import Alert from "../../utils/alert";
 
 
 export const connectWallet = createAsyncThunk("wallet/connectWallet", async (_, thunkAPI) => {
-    try{
+    try {
         const { ethereum } = window;
-        if (ethereum) {
+        if (!ethereum) {
+            Alert({
+                type: 'info',
+                message: 'Please Download Meta Mask.',
+            });
+        } else {
             const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
             return accounts[0];
-        } else {
-            thunkAPI.rejectWithValue("Please install MetaMask");
-        }
-} catch (error) {
-    thunkAPI.rejectWithValue(error.message);
-}});
+        } 
+    } catch (error) {
+        Alert({
+            type: 'error',
+            message: error.message,
+        });
+    }
+});
+
 
 
 const initialState = {
@@ -32,23 +41,23 @@ export const walletSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-        .addCase(connectWallet.pending, (state) => {
-            state.loading = true;
-        })
-        .addCase(connectWallet.fulfilled, (state, action) => {
-            state.loading = false;
-            state.connected = true;
-            state.account = action.payload;
-        })
-        .addCase(connectWallet.rejected, (state, action) => {
-            state.loading = false;
-        });
+            .addCase(connectWallet.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(connectWallet.fulfilled, (state, action) => {
+                state.loading = false;
+                state.connected = true;
+                state.account = action.payload;
+            })
+            .addCase(connectWallet.rejected, (state, action) => {
+                state.loading = false;
+            });
     },
-    });
+});
 
-    export const { disconnectWallet } = walletSlice.actions;
+export const { disconnectWallet } = walletSlice.actions;
 
-    export default walletSlice.reducer;
+export default walletSlice.reducer;
 
-    export const selectAccount = (state) => state.wallet.account;
-    export const selectConnected = (state) => state.wallet.connected;
+export const selectAccount = (state) => state.wallet.account;
+export const selectConnected = (state) => state.wallet.connected;

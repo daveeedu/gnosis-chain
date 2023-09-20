@@ -5,6 +5,7 @@ import { teamdata } from './fakeData';
 import { useDispatch, useSelector } from 'react-redux';
 import { connectWallet, disconnectWallet, selectAccount, selectConnected } from '../../features/wallet/walletSlice';
 import AboutGnosis from '../../components/AboutGnosis';
+import Alert from '../../utils/alert';
 
 const LandingPage = () => {
 
@@ -13,7 +14,9 @@ const LandingPage = () => {
     const isConnected = useSelector(selectConnected)
 
     const handleConnectWallet = () => {
-        dispatch(connectWallet())
+       
+            dispatch(connectWallet())
+         
     };
 
     const handleDisconnectWallet = () => {
@@ -38,7 +41,7 @@ const LandingPage = () => {
                 </h1>
                 <div className="card mb-8">
 
-                    {isConnected ? (
+                    {isConnected && walletAddess ? (
                         <button onClick={handleDisconnectWallet} className='bg-[#11453B] hover:bg-[#155245]  shadow-2xl text-white px-10 py-3  rounded-2xl'>
                         Disconnect Wallet
                     </button>
@@ -48,7 +51,7 @@ const LandingPage = () => {
                     </button>
                     )}
                     
-                    {isConnected ? (
+                    {isConnected && walletAddess ? (
                        <div className='lg:w-[45%] w-[80%] m-auto text-[#B4A572] font-bold md:text-[1em] text-[0.6em]'>
                         <h1 className='bg-[#11453B]  mt-8 py-2 '>Wallet ID: {walletAddess} </h1>
                         <h1 className='bg-[#11453B]  mt-8 py-2 '>Purchased Unit: 400 Wat </h1>
@@ -59,9 +62,9 @@ const LandingPage = () => {
                         )}
                 </div>
             </div>
-            {isConnected ? (
+            {isConnected && walletAddess ? (
             <div>
-                <p>Wallet is  connected.</p>
+                <p>Wallet is connected.</p>
             </div>
             ) : (
                 <div >
