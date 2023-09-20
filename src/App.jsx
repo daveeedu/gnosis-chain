@@ -1,14 +1,15 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
-import { ILightningBolt } from './utils/icons.utils'
-import LandingPage from './pages/landingPage/Index'
+
 import Dashboard from './pages/dashboard/Index'
+import { Provider } from 'react-redux'
+import store from './features/store'
+import LandingPage from './pages/landingPage/Index'
 
 function App() {
   return (
+    <Provider store={store}>
     <BrowserRouter>
      <div className='App' >
       <Routes>
@@ -27,6 +28,7 @@ function App() {
       </Routes>
      </div>
     </BrowserRouter>
+    </Provider>
   )
 }
 
