@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { connectWallet, disconnectWallet, selectAccount, selectConnected } from '../../features/wallet/walletSlice';
 import AboutGnosis from '../../components/AboutGnosis';
 import Alert from '../../utils/alert';
+import TableComp from '../../components/TableComp';
+import FormComp from '../../components/FormComp';
 
 const LandingPage = () => {
 
@@ -42,11 +44,11 @@ const LandingPage = () => {
                 <div className="card mb-8">
 
                     {isConnected && walletAddess ? (
-                        <button onClick={handleDisconnectWallet} className='bg-[#11453B] hover:bg-[#155245]  shadow-2xl text-white px-10 py-3  rounded-2xl'>
+                        <button onClick={handleDisconnectWallet} className='bg-[#11453B] hover:bg-[#155245]  shadow-2xl text-white px-10 py-3  '>
                         Disconnect Wallet
                     </button>
                     ) : (
-                        <button onClick={handleConnectWallet} className='bg-[#11453B] hover:bg-[#155245]  shadow-2xl text-white px-10 py-3  rounded-2xl'>
+                        <button onClick={handleConnectWallet} className='bg-[#11453B] hover:bg-[#155245]  shadow-2xl text-white px-10 py-3 '>
                         Connect Your Wallet
                     </button>
                     )}
@@ -63,8 +65,9 @@ const LandingPage = () => {
                 </div>
             </div>
             {isConnected && walletAddess ? (
-            <div>
-                <p>Wallet is connected.</p>
+            <div className='lg:grid lg:grid-cols-2 pb-8'>
+                <TableComp />
+                <FormComp />
             </div>
             ) : (
                 <div >

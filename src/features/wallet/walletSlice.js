@@ -6,12 +6,14 @@ export const connectWallet = createAsyncThunk("wallet/connectWallet", async (_, 
     try {
         const { ethereum } = window;
         if (!ethereum) {
-            Alert({
-                type: 'info',
-                message: 'Please Download Meta Mask.',
-            });
+            window.location.href = 'https://metamask.io/download';
+            
         } else {
             const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+            Alert({
+                type: 'success',
+                message: 'Connected successfully',
+            });
             return accounts[0];
         } 
     } catch (error) {
