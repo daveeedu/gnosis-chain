@@ -18,10 +18,10 @@ export const teamdata = [
         }
     },
     {
-        id: 3, title: 'Etette Etuk', img: ITalentThree, profession: 'Software Engineer | Project Manager', content: 'Never again wil you spend more than 2 minutes on payroll. Just click on your staff annd bulk-pay them at once. Payment is done permanently.', links: {
-            github: '',
-            linkedin: '',
-            twitter: '',
+        id: 3, title: 'Etette Etok', img: ITalentThree, profession: 'Software Engineer | Project Manager', content: 'Software Engineer,Web Developer, Solidity Developer | Creating transformative innovations with blockchain technology.', links: {
+            github: 'https://github.com/Etette',
+            linkedin: 'https://linkedin.com/in/etette-etok',
+            twitter: 'https://twitter.com/Em_Etok',
             instagram: ''
         }
     },
