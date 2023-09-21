@@ -44,11 +44,11 @@ const LandingPage = () => {
                 <div className="card mb-8">
 
                     {isConnected && walletAddess ? (
-                        <button onClick={handleDisconnectWallet} className='bg-[#11453B] hover:bg-[#155245]  shadow-2xl text-white px-10 py-3  '>
+                        <button onClick={handleDisconnectWallet} className='bg-[#11453B] hover:bg-[#155245] shadow-2xl text-white px-10 py-3  '>
                         Disconnect Wallet
                     </button>
                     ) : (
-                        <button onClick={handleConnectWallet} className='bg-[#11453B] hover:bg-[#155245]  shadow-2xl text-white px-10 py-3 '>
+                        <button onClick={handleConnectWallet} className='bg-[#11453B] rounded-lg hover:bg-[#155245] shadow-2xl text-white px-10 py-3 '>
                         Connect Your Wallet
                     </button>
                     )}

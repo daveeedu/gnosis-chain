@@ -9,7 +9,7 @@ const CardComp = ({data}) => {
     {data.map((card) => (
       <div
         key={card?.id}
-        className={`bg-[#11453B] h-60 drop-shadow-2xl relative  text-white rounded-[10px] p-5 lg:w-full md:w-[70%] w-[95%] m-auto lg:m-0 mb-3 lg:mb-0 transform transition-transform `}
+        className={`bg-[#11453B] h-60 drop-shadow-2xl relative  text-white rounded-lg p-5 lg:w-full md:w-[70%] w-[95%] m-auto lg:m-0 mb-3 lg:mb-0 transform transition-transform `}
       >
         <h1 className=" text-[1.7em] font-bold mb-2 text-[#B4A572]">{card?.title}</h1>
        <div className='grid grid-cols-2'>
