@@ -1,25 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { IGnosisLogo, IGnosisEnergyFoot } from '../../utils/icons.utils'
 import CardComp from '../../components/CardComp';
 import { teamdata } from './fakeData';
 import { useDispatch, useSelector } from 'react-redux';
-import { connectWallet, disconnectWallet, selectAccount, selectConnected } from '../../features/wallet/walletSlice';
+import { connectWallet, disconnectWallet,  getPrice,  getUserTransactions,  getWalletData} from '../../features/wallet/walletSlice';
 import AboutGnosis from '../../components/AboutGnosis';
-import Alert from '../../utils/alert';
 import TableComp from '../../components/TableComp';
 import FormComp from '../../components/FormComp';
 
 const LandingPage = () => {
 
     const dispatch = useDispatch();
-    const walletAddess = useSelector(selectAccount)
-    const isConnected = useSelector(selectConnected)
+    const {account, transactions, price, connected, loading} = useSelector(getWalletData);
 
     const handleConnectWallet = () => {
-       
             dispatch(connectWallet())
-         
     };
+
+    useEffect(() => {
+        // Dispatch the action only if the wallet is connected
+        if (connected) {
+          dispatch(getUserTransactions(account));
+          dispatch(getPrice());
+        }
+      }, [dispatch, connected, account]);
 
     const handleDisconnectWallet = () => {
         dispatch(disconnectWallet())
@@ -43,7 +47,7 @@ const LandingPage = () => {
                 </h1>
                 <div className="card mb-8">
 
-                    {isConnected && walletAddess ? (
+                    {connected && account ? (
                         <button onClick={handleDisconnectWallet} className='bg-[#11453B] hover:bg-[#155245] shadow-2xl text-white px-10 py-3  '>
                         Disconnect Wallet
                     </button>
@@ -53,18 +57,18 @@ const LandingPage = () => {
                     </button>
                     )}
                     
-                    {isConnected && walletAddess ? (
-                       <div className='lg:w-[45%] w-[80%] m-auto text-[#B4A572] font-bold md:text-[1em] text-[0.6em]'>
-                        <h1 className='bg-[#11453B]  mt-8 py-2 '>Wallet ID: {walletAddess} </h1>
-                        <h1 className='bg-[#11453B]  mt-8 py-2 '>Purchased Unit: 400 Wat </h1>
-                        <h1 className='bg-[#11453B]  mt-8 py-2 '>Available Unit: 20 Wat </h1>
+                    {connected && account ? (
+                       <div className='lg:w-[55%] md:w-[80%] w-full m-auto text-[#B4A572] font-bold md:text-[1em] text-[0.6em]'>
+                        <h1 className='bg-[#11453B]  mt-8 py-2 '><span className='font-bold text-[1.2em]'>Wallet Address</span>: {account} </h1>
+                        <h1 className='bg-[#11453B]  mt-8 py-2 '><span className='font-bold text-[1.2em]'>Unit Price</span>: {price} </h1>
+                        <h1 className='bg-[#11453B]  mt-8 py-2 '><span className='font-bold text-[1.2em]'>Available Unit</span>: 20 Wat </h1>
                        </div>
                         ) : (
                             <></> 
                         )}
                 </div>
             </div>
-            {isConnected && walletAddess ? (
+            {connected && account ? (
             <div className='lg:grid lg:grid-cols-2 pb-8'>
                 <TableComp />
                 <FormComp />
