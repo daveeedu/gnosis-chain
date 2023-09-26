@@ -4,26 +4,34 @@ import axios from "axios";
 
 
 export const connectWallet = createAsyncThunk("wallet/connectWallet", async (_, thunkAPI) => {
-    try {
-        const { ethereum } = window;
-        if (!ethereum) {
-            window.location.href = 'https://metamask.io/download';
-            
-        } else {
-            const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-            Alert({
-                type: 'success',
-                message: 'Connected successfully',
-            });
-            console.log(accounts)
-            return accounts[0];
-        } 
-    } catch (error) {
-        Alert({
-            type: 'error',
-            message: error.message,
-        });
-    }
+  try {
+      const { ethereum } = window;
+      if (!ethereum) {
+          window.location.href = 'https://metamask.io/download';
+      } else {
+          const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+          const account = accounts[0];
+          
+          // Make a POST request to the specified endpoint with account[0] as the request body
+          const response = await axios.post("https://gnosis-energy.onrender.com/api/v1/wallet", { account });
+          
+          if (response.status === 200) {
+              Alert({
+                  type: 'success',
+                  message: 'Connected successfully',
+              });
+              return account;
+          } else {
+              return thunkAPI.rejectWithValue("Failed to connect wallet");
+          }
+      } 
+  } catch (error) {
+      Alert({
+          type: 'error',
+          message: error.message,
+      });
+      return thunkAPI.rejectWithValue(error.message);
+  }
 });
 
 // Create an async thunk to fetch user transactions
