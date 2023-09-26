@@ -135,7 +135,7 @@ export const walletSlice = createSlice({
               })
               .addCase(getUserTransactions.fulfilled, (state, { payload }) => {
                 state.loading = false;
-                state.transactions = payload; // Store user transactions in state
+                state.transactions = payload.data; // Store user transactions in state
               })
               .addCase(getUserTransactions.rejected, (state, { payload }) => {
                 state.loading = false;
