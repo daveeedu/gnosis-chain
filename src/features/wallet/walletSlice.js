@@ -33,7 +33,7 @@ export const getUserTransactions = createAsyncThunk(
       try {
         // Make a GET request to your backend using axiosprice
         const response = await axios.get(
-          `https://gnosis-energy.onrender.com/api/v1/transactions/:${address}`
+          `https://gnosis-energy.onrender.com/api/v1/transactions/${address}`
         );
   
         // Check if the response status is successful
