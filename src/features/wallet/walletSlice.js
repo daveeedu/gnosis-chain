@@ -8,29 +8,21 @@ export const connectWallet = createAsyncThunk("wallet/connectWallet", async (_, 
       const { ethereum } = window;
       if (!ethereum) {
           window.location.href = 'https://metamask.io/download';
+          
       } else {
           const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-          const account = accounts[0];
-          
-          // Make a POST request to the specified endpoint with account[0] as the request body
-          const response = await axios.post("https://gnosis-energy.onrender.com/api/v1/wallet", { account });
-          
-          if (response.status === 200) {
-              Alert({
-                  type: 'success',
-                  message: 'Connected successfully',
-              });
-              return account;
-          } else {
-              return thunkAPI.rejectWithValue("Failed to connect wallet");
-          }
+          Alert({
+              type: 'success',
+              message: 'Connected successfully',
+          });
+          console.log(accounts)
+          return accounts[0];
       } 
   } catch (error) {
       Alert({
           type: 'error',
           message: error.message,
       });
-      return thunkAPI.rejectWithValue(error.message);
   }
 });
 
@@ -143,7 +135,7 @@ export const walletSlice = createSlice({
               })
               .addCase(getUserTransactions.fulfilled, (state, { payload }) => {
                 state.loading = false;
-                state.transactions = payload.data; // Store user transactions in state
+                state.transactions = payload?.data; // Store user transactions in state
               })
               .addCase(getUserTransactions.rejected, (state, { payload }) => {
                 state.loading = false;
@@ -155,7 +147,7 @@ export const walletSlice = createSlice({
               })
               .addCase(getPrice.fulfilled, (state, { payload }) => {
                 state.loading = false;
-                state.price = payload.data; // Store the fetched price in state
+                state.price = payload?.data; // Store the fetched price in state
               })
               .addCase(getPrice.rejected, (state, { payload }) => {
                 state.loading = false;

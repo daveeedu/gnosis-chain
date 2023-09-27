@@ -61,8 +61,8 @@ const LandingPage = () => {
                     {connected && account ? (
                        <div className='lg:w-[55%] md:w-[80%] w-full m-auto text-[#B4A572] font-bold md:text-[1em] text-[0.6em]'>
                         <h1 className='bg-[#11453B]  mt-8 py-2 '><span className='font-bold text-[1.2em]'>Wallet Address</span>: {account} </h1>
-                        <h1 className='bg-[#11453B]  mt-8 py-2 '><span className='font-bold text-[1.2em]'>Unit Price</span>: {price} </h1>
-                        <h1 className='bg-[#11453B]  mt-8 py-2 '><span className='font-bold text-[1.2em]'>Total Transactions</span>: {transactions} </h1>
+                        {/* <h1 className='bg-[#11453B]  mt-8 py-2 '><span className='font-bold text-[1.2em]'>Unit Price</span>: {price} </h1>
+                        <h1 className='bg-[#11453B]  mt-8 py-2 '><span className='font-bold text-[1.2em]'>Total Transactions</span>: {transactions} </h1> */}
                        </div>
                         ) : (
                             <></> 
