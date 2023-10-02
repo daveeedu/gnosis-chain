@@ -22,7 +22,7 @@ export const connectWallet = createAsyncThunk("wallet/connectWallet", async (_, 
       Alert({
           type: 'error',
           message: error.message,
-      });
+      }); 
   }
 });
 

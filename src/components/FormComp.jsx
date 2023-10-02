@@ -51,7 +51,7 @@ const FormComp = () => {
             className='bg-white py-3 pl-3'
             id='amount'
             name='amount'
-            type='text'
+            type='number'
             placeholder='Amount'
             onChange={handleChange}
             onBlur={handleBlur}
